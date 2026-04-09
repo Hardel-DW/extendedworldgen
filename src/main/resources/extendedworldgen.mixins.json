@@ -1,0 +1,15 @@
+{
+	"required": true,
+	"package": "fr.hardel.mixin",
+	"compatibilityLevel": "JAVA_25",
+	"mixins": [
+		"ExampleMixin",
+		"MultiNoiseBiomeSourceMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	}
+}
