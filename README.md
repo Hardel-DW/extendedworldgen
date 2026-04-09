@@ -1,4 +1,4 @@
-# extendedworldgen — `biome_entry` registry
+# New Dimension Format
 
 Fabric mod prototyping a `biome_entry` dynamic registry that lets datapacks describe multi-noise biome distributions in small, human-readable files instead of the 6.8 MB monolithic `overworld.json`.
 
