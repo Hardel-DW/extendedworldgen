@@ -1,0 +1,61 @@
+{
+  "biome": "minecraft:stony_shore",
+  "rules": [
+    {
+      "continentalness": [
+        -0.19,
+        -0.11
+      ],
+      "erosion": [
+        -1.0,
+        -0.2225
+      ],
+      "weirdness": [
+        -1.0,
+        -0.9333
+      ]
+    },
+    {
+      "continentalness": [
+        -0.19,
+        -0.11
+      ],
+      "erosion": [
+        -1.0,
+        -0.2225
+      ],
+      "weirdness": [
+        -0.4,
+        -0.05
+      ]
+    },
+    {
+      "continentalness": [
+        -0.19,
+        -0.11
+      ],
+      "erosion": [
+        -1.0,
+        -0.2225
+      ],
+      "weirdness": [
+        0.05,
+        0.4
+      ]
+    },
+    {
+      "continentalness": [
+        -0.19,
+        -0.11
+      ],
+      "erosion": [
+        -1.0,
+        -0.2225
+      ],
+      "weirdness": [
+        0.9333,
+        1.0
+      ]
+    }
+  ]
+}

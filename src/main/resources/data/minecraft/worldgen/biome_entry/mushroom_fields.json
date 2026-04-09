@@ -1,0 +1,11 @@
+{
+  "biome": "minecraft:mushroom_fields",
+  "rules": [
+    {
+      "continentalness": [
+        -1.2,
+        -1.05
+      ]
+    }
+  ]
+}

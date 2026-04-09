@@ -1,0 +1,15 @@
+{
+  "biome": "minecraft:lush_caves",
+  "rules": [
+    {
+      "humidity": [
+        0.7,
+        1.0
+      ],
+      "depth": [
+        0.2,
+        0.9
+      ]
+    }
+  ]
+}

@@ -1,0 +1,225 @@
+{
+  "biome": "minecraft:badlands",
+  "rules": [
+    {
+      "temperature": [
+        0.55,
+        1.0
+      ],
+      "humidity": [
+        -1.0,
+        0.1
+      ],
+      "continentalness": [
+        -0.11,
+        1.0
+      ],
+      "erosion": [
+        -1.0,
+        -0.375
+      ],
+      "weirdness": [
+        -1.0,
+        -0.7666
+      ]
+    },
+    {
+      "temperature": [
+        0.55,
+        1.0
+      ],
+      "humidity": [
+        -1.0,
+        0.1
+      ],
+      "continentalness": [
+        0.03,
+        1.0
+      ],
+      "erosion": [
+        -0.375,
+        0.05
+      ],
+      "weirdness": [
+        -1.0,
+        -0.05
+      ]
+    },
+    {
+      "temperature": [
+        0.55,
+        1.0
+      ],
+      "humidity": [
+        -1.0,
+        0.1
+      ],
+      "continentalness": [
+        -0.19,
+        1.0
+      ],
+      "erosion": [
+        -1.0,
+        -0.375
+      ],
+      "weirdness": [
+        -0.7666,
+        -0.5666
+      ]
+    },
+    {
+      "temperature": [
+        0.55,
+        1.0
+      ],
+      "humidity": [
+        -1.0,
+        0.1
+      ],
+      "continentalness": [
+        -0.11,
+        1.0
+      ],
+      "erosion": [
+        -1.0,
+        -0.375
+      ],
+      "weirdness": [
+        -0.5666,
+        -0.05
+      ]
+    },
+    {
+      "temperature": [
+        0.55,
+        1.0
+      ],
+      "humidity": [
+        -0.1,
+        0.1
+      ],
+      "continentalness": [
+        0.03,
+        1.0
+      ],
+      "erosion": [
+        -1.0,
+        -0.375
+      ],
+      "weirdness": [
+        -0.05,
+        0.2666
+      ]
+    },
+    {
+      "temperature": [
+        0.55,
+        1.0
+      ],
+      "humidity": [
+        -0.1,
+        0.1
+      ],
+      "continentalness": [
+        -0.11,
+        0.03
+      ],
+      "erosion": [
+        -1.0,
+        -0.375
+      ],
+      "weirdness": [
+        0.05,
+        0.2666
+      ]
+    },
+    {
+      "temperature": [
+        0.55,
+        1.0
+      ],
+      "humidity": [
+        -0.1,
+        0.1
+      ],
+      "continentalness": [
+        0.03,
+        1.0
+      ],
+      "erosion": [
+        -0.375,
+        0.05
+      ],
+      "weirdness": [
+        0.05,
+        1.0
+      ]
+    },
+    {
+      "temperature": [
+        0.55,
+        1.0
+      ],
+      "humidity": [
+        -0.1,
+        0.1
+      ],
+      "continentalness": [
+        -0.11,
+        1.0
+      ],
+      "erosion": [
+        -1.0,
+        -0.375
+      ],
+      "weirdness": [
+        0.2666,
+        0.5666
+      ]
+    },
+    {
+      "temperature": [
+        0.55,
+        1.0
+      ],
+      "humidity": [
+        -0.1,
+        0.1
+      ],
+      "continentalness": [
+        -0.19,
+        1.0
+      ],
+      "erosion": [
+        -1.0,
+        -0.375
+      ],
+      "weirdness": [
+        0.5666,
+        0.7666
+      ]
+    },
+    {
+      "temperature": [
+        0.55,
+        1.0
+      ],
+      "humidity": [
+        -0.1,
+        0.1
+      ],
+      "continentalness": [
+        -0.11,
+        1.0
+      ],
+      "erosion": [
+        -1.0,
+        -0.375
+      ],
+      "weirdness": [
+        0.7666,
+        1.0
+      ]
+    }
+  ]
+}

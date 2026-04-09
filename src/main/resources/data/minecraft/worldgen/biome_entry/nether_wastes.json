@@ -1,0 +1,13 @@
+{
+  "biome": "minecraft:nether_wastes",
+  "rules": [
+    {
+      "temperature": 0.0,
+      "humidity": 0.0,
+      "continentalness": 0.0,
+      "erosion": 0.0,
+      "weirdness": 0.0,
+      "depth": 0.0
+    }
+  ]
+}

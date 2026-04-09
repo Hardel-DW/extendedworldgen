@@ -1,0 +1,15 @@
+{
+  "biome": "minecraft:deep_ocean",
+  "rules": [
+    {
+      "temperature": [
+        -0.15,
+        0.2
+      ],
+      "continentalness": [
+        -1.05,
+        -0.455
+      ]
+    }
+  ]
+}

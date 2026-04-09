@@ -1,0 +1,15 @@
+{
+  "biome": "minecraft:dripstone_caves",
+  "rules": [
+    {
+      "continentalness": [
+        0.8,
+        1.0
+      ],
+      "depth": [
+        0.2,
+        0.9
+      ]
+    }
+  ]
+}

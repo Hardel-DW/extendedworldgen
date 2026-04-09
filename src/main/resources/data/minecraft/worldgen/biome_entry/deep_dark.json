@@ -1,0 +1,12 @@
+{
+  "biome": "minecraft:deep_dark",
+  "rules": [
+    {
+      "erosion": [
+        -1.0,
+        -0.375
+      ],
+      "depth": 1.1
+    }
+  ]
+}

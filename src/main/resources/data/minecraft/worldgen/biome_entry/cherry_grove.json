@@ -1,0 +1,181 @@
+{
+  "biome": "minecraft:cherry_grove",
+  "rules": [
+    {
+      "temperature": [
+        -0.45,
+        0.2
+      ],
+      "humidity": [
+        -1.0,
+        -0.35
+      ],
+      "continentalness": [
+        0.3,
+        1.0
+      ],
+      "erosion": [
+        -0.7799,
+        -0.2225
+      ],
+      "weirdness": [
+        0.2666,
+        0.4
+      ]
+    },
+    {
+      "temperature": [
+        -0.15,
+        0.2
+      ],
+      "humidity": [
+        -0.35,
+        -0.1
+      ],
+      "continentalness": [
+        0.3,
+        1.0
+      ],
+      "erosion": [
+        -0.7799,
+        -0.2225
+      ],
+      "weirdness": [
+        0.2666,
+        0.4
+      ]
+    },
+    {
+      "temperature": [
+        -0.45,
+        0.2
+      ],
+      "humidity": [
+        -1.0,
+        -0.35
+      ],
+      "continentalness": [
+        0.03,
+        1.0
+      ],
+      "erosion": [
+        -0.375,
+        -0.2225
+      ],
+      "weirdness": [
+        0.4,
+        0.9333
+      ]
+    },
+    {
+      "temperature": [
+        -0.45,
+        0.2
+      ],
+      "humidity": [
+        -1.0,
+        -0.35
+      ],
+      "continentalness": [
+        0.3,
+        1.0
+      ],
+      "erosion": [
+        -0.2225,
+        0.05
+      ],
+      "weirdness": [
+        0.4,
+        0.9333
+      ]
+    },
+    {
+      "temperature": [
+        -0.15,
+        0.2
+      ],
+      "humidity": [
+        -0.35,
+        -0.1
+      ],
+      "continentalness": [
+        0.03,
+        1.0
+      ],
+      "erosion": [
+        -0.375,
+        -0.2225
+      ],
+      "weirdness": [
+        0.4,
+        0.9333
+      ]
+    },
+    {
+      "temperature": [
+        -0.15,
+        0.2
+      ],
+      "humidity": [
+        -0.35,
+        -0.1
+      ],
+      "continentalness": [
+        0.3,
+        1.0
+      ],
+      "erosion": [
+        -0.2225,
+        0.05
+      ],
+      "weirdness": [
+        0.4,
+        0.9333
+      ]
+    },
+    {
+      "temperature": [
+        -0.45,
+        0.2
+      ],
+      "humidity": [
+        -1.0,
+        -0.35
+      ],
+      "continentalness": [
+        0.3,
+        1.0
+      ],
+      "erosion": [
+        -0.7799,
+        -0.2225
+      ],
+      "weirdness": [
+        0.9333,
+        1.0
+      ]
+    },
+    {
+      "temperature": [
+        -0.15,
+        0.2
+      ],
+      "humidity": [
+        -0.35,
+        -0.1
+      ],
+      "continentalness": [
+        0.3,
+        1.0
+      ],
+      "erosion": [
+        -0.7799,
+        -0.2225
+      ],
+      "weirdness": [
+        0.9333,
+        1.0
+      ]
+    }
+  ]
+}

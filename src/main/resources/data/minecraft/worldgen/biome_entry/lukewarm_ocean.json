@@ -1,0 +1,15 @@
+{
+  "biome": "minecraft:lukewarm_ocean",
+  "rules": [
+    {
+      "temperature": [
+        0.2,
+        0.55
+      ],
+      "continentalness": [
+        -0.455,
+        -0.19
+      ]
+    }
+  ]
+}

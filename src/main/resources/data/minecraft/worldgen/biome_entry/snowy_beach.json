@@ -1,0 +1,95 @@
+{
+  "biome": "minecraft:snowy_beach",
+  "rules": [
+    {
+      "temperature": [
+        -1.0,
+        -0.45
+      ],
+      "continentalness": [
+        -0.19,
+        -0.11
+      ],
+      "erosion": [
+        0.05,
+        1.0
+      ],
+      "weirdness": [
+        -1.0,
+        -0.9333
+      ]
+    },
+    {
+      "temperature": [
+        -1.0,
+        -0.45
+      ],
+      "continentalness": [
+        -0.19,
+        -0.11
+      ],
+      "erosion": [
+        0.05,
+        1.0
+      ],
+      "weirdness": [
+        -0.4,
+        -0.2666
+      ]
+    },
+    {
+      "temperature": [
+        -1.0,
+        -0.45
+      ],
+      "continentalness": [
+        -0.19,
+        -0.11
+      ],
+      "erosion": [
+        -0.2225,
+        1.0
+      ],
+      "weirdness": [
+        -0.2666,
+        -0.05
+      ]
+    },
+    {
+      "temperature": [
+        -1.0,
+        -0.45
+      ],
+      "continentalness": [
+        -0.19,
+        -0.11
+      ],
+      "erosion": [
+        -0.2225,
+        0.45
+      ],
+      "weirdness": [
+        0.05,
+        0.2666
+      ]
+    },
+    {
+      "temperature": [
+        -1.0,
+        -0.45
+      ],
+      "continentalness": [
+        -0.19,
+        -0.11
+      ],
+      "erosion": [
+        0.55,
+        1.0
+      ],
+      "weirdness": [
+        0.05,
+        0.2666
+      ]
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "biome": "minecraft:windswept_gravelly_hills",
+  "rules": [
+    {
+      "temperature": [
+        -1.0,
+        -0.15
+      ],
+      "humidity": [
+        -1.0,
+        -0.1
+      ],
+      "continentalness": [
+        0.03,
+        1.0
+      ],
+      "erosion": [
+        0.45,
+        0.55
+      ],
+      "weirdness": [
+        -1.0,
+        -0.7666
+      ]
+    },
+    {
+      "temperature": [
+        -1.0,
+        -0.15
+      ],
+      "humidity": [
+        -1.0,
+        -0.1
+      ],
+      "continentalness": [
+        -0.19,
+        1.0
+      ],
+      "erosion": [
+        0.45,
+        0.55
+      ],
+      "weirdness": [
+        -0.7666,
+        -0.5666
+      ]
+    },
+    {
+      "temperature": [
+        -1.0,
+        -0.15
+      ],
+      "humidity": [
+        -1.0,
+        -0.1
+      ],
+      "continentalness": [
+        0.03,
+        1.0
+      ],
+      "erosion": [
+        0.45,
+        0.55
+      ],
+      "weirdness": [
+        -0.5666,
+        -0.2666
+      ]
+    },
+    {
+      "temperature": [
+        -1.0,
+        -0.15
+      ],
+      "humidity": [
+        -1.0,
+        -0.1
+      ],
+      "continentalness": [
+        0.03,
+        1.0
+      ],
+      "erosion": [
+        0.45,
+        0.55
+      ],
+      "weirdness": [
+        0.2666,
+        0.5666
+      ]
+    },
+    {
+      "temperature": [
+        -1.0,
+        -0.15
+      ],
+      "humidity": [
+        -1.0,
+        -0.1
+      ],
+      "continentalness": [
+        -0.19,
+        1.0
+      ],
+      "erosion": [
+        0.45,
+        0.55
+      ],
+      "weirdness": [
+        0.5666,
+        0.7666
+      ]
+    },
+    {
+      "temperature": [
+        -1.0,
+        -0.15
+      ],
+      "humidity": [
+        -1.0,
+        -0.1
+      ],
+      "continentalness": [
+        0.03,
+        1.0
+      ],
+      "erosion": [
+        0.45,
+        0.55
+      ],
+      "weirdness": [
+        0.7666,
+        1.0
+      ]
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "biome": "minecraft:stony_peaks",
+  "rules": [
+    {
+      "temperature": [
+        0.2,
+        0.55
+      ],
+      "continentalness": [
+        0.03,
+        1.0
+      ],
+      "erosion": [
+        -1.0,
+        -0.7799
+      ],
+      "weirdness": [
+        -0.9333,
+        -0.7666
+      ]
+    },
+    {
+      "temperature": [
+        0.2,
+        0.55
+      ],
+      "continentalness": [
+        -0.19,
+        1.0
+      ],
+      "erosion": [
+        -1.0,
+        -0.7799
+      ],
+      "weirdness": [
+        -0.7666,
+        -0.5666
+      ]
+    },
+    {
+      "temperature": [
+        0.2,
+        0.55
+      ],
+      "continentalness": [
+        0.03,
+        1.0
+      ],
+      "erosion": [
+        -0.7799,
+        -0.375
+      ],
+      "weirdness": [
+        -0.7666,
+        -0.5666
+      ]
+    },
+    {
+      "temperature": [
+        0.2,
+        0.55
+      ],
+      "continentalness": [
+        0.03,
+        1.0
+      ],
+      "erosion": [
+        -1.0,
+        -0.7799
+      ],
+      "weirdness": [
+        -0.5666,
+        -0.4
+      ]
+    },
+    {
+      "temperature": [
+        0.2,
+        0.55
+      ],
+      "continentalness": [
+        0.03,
+        1.0
+      ],
+      "erosion": [
+        -1.0,
+        -0.7799
+      ],
+      "weirdness": [
+        0.4,
+        0.5666
+      ]
+    },
+    {
+      "temperature": [
+        0.2,
+        0.55
+      ],
+      "continentalness": [
+        -0.19,
+        1.0
+      ],
+      "erosion": [
+        -1.0,
+        -0.7799
+      ],
+      "weirdness": [
+        0.5666,
+        0.7666
+      ]
+    },
+    {
+      "temperature": [
+        0.2,
+        0.55
+      ],
+      "continentalness": [
+        0.03,
+        1.0
+      ],
+      "erosion": [
+        -0.7799,
+        -0.375
+      ],
+      "weirdness": [
+        0.5666,
+        0.7666
+      ]
+    },
+    {
+      "temperature": [
+        0.2,
+        0.55
+      ],
+      "continentalness": [
+        0.03,
+        1.0
+      ],
+      "erosion": [
+        -1.0,
+        -0.7799
+      ],
+      "weirdness": [
+        0.7666,
+        0.9333
+      ]
+    }
+  ]
+}
