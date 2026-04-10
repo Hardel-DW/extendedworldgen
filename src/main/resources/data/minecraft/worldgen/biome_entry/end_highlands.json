@@ -1,0 +1,12 @@
+{
+  "biome": "minecraft:end_highlands",
+  "rules": [
+    {
+      "density_function": {
+        "channel": "erosion",
+        "above": 0.25,
+        "sample_position": "section_center"
+      }
+    }
+  ]
+}

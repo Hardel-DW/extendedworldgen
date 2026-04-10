@@ -1,0 +1,13 @@
+{
+  "biome": "minecraft:end_barrens",
+  "rules": [
+    {
+      "density_function": {
+        "channel": "erosion",
+        "at_least": -0.21875,
+        "below": -0.0625,
+        "sample_position": "section_center"
+      }
+    }
+  ]
+}

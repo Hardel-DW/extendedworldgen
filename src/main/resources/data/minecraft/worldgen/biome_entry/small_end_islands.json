@@ -1,0 +1,12 @@
+{
+  "biome": "minecraft:small_end_islands",
+  "rules": [
+    {
+      "density_function": {
+        "channel": "erosion",
+        "below": -0.21875,
+        "sample_position": "section_center"
+      }
+    }
+  ]
+}

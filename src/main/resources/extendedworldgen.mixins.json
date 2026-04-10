@@ -3,8 +3,7 @@
 	"package": "fr.hardel.mixin",
 	"compatibilityLevel": "JAVA_25",
 	"mixins": [
-		"ExampleMixin",
-		"MultiNoiseBiomeSourceMixin"
+		"ExampleMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

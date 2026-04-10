@@ -1,0 +1,13 @@
+{
+  "biome": "minecraft:end_midlands",
+  "rules": [
+    {
+      "density_function": {
+        "channel": "erosion",
+        "at_least": -0.0625,
+        "at_most": 0.25,
+        "sample_position": "section_center"
+      }
+    }
+  ]
+}

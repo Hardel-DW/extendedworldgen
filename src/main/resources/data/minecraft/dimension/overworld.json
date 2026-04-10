@@ -4,8 +4,8 @@
     "type": "minecraft:noise",
     "settings": "minecraft:overworld",
     "biome_source": {
-      "type": "minecraft:multi_noise",
-      "biome_entries": "#minecraft:overworld"
+      "type": "minecraft:biome_entry",
+      "entries": "#minecraft:overworld"
     }
   }
 }

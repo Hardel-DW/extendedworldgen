@@ -1,0 +1,6 @@
+{
+  "biome": "minecraft:the_end",
+  "rules": [
+    { "within_chunk_radius": 64 }
+  ]
+}
