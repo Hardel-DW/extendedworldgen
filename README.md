@@ -85,7 +85,9 @@ A rule is a flat object carrying any subset of the constraint fields below. Two 
 - Omitted `depth` → the rule is duplicated into a surface entry (`depth = 0.0`) and an underground entry (`depth = 1.0`), matching vanilla's automatic split. Set `depth` explicitly only for biomes that occupy a non-standard layer
 
 **Geometric constraints** (ordered, first-match-wins, used by end):
-- `within_chunk_radius` — integer. Matches if `chunkX² + chunkZ² ≤ radius²`. Replicates the end's central island check.
+- `within_chunk_radius` — a horizontal zone in chunk space. Two accepted forms:
+  - **Shorthand** — a single integer, center at world origin: `"within_chunk_radius": 64` matches when `chunkX² + chunkZ² ≤ 64²`. This is the form vanilla's end central island check uses.
+  - **Object** — explicit center coordinates: `"within_chunk_radius": { "x": 500, "z": -300, "radius": 32 }`. Both `x` and `z` default to `0` when omitted. Lets a datapack drop a biome into a fixed horizontal disc anywhere, not just at the origin. Only XZ — the zone is an infinite vertical cylinder. Pair with a `density_function` constraint on `channel: depth` in the same rule if you want a 3D shape.
 - `density_function` — object with:
   - `channel` — one of `temperature`, `humidity`, `continentalness`, `erosion`, `depth`, `weirdness`. Selects which pre-bound density function from the current dimension's `Climate.Sampler` is read.
   - `above`, `at_least`, `below`, `at_most` — any subset, all `double`, ANDed. Four operators are needed because vanilla's end code mixes strict and non-strict comparisons (`h > 0.25` then `h >= -0.0625`) and a single inclusive `[min, max]` interval cannot express that without losing parity at the boundaries.
