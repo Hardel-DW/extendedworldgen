@@ -1,8 +1,8 @@
 # New Dimension Format
 
-Fabric mod prototyping a `biome_entry` dynamic registry that lets datapacks describe multi-noise biome distributions in small, human-readable files instead of the 6.8 MB monolithic `overworld.json`.
+Fabric mod prototyping a `biome_entry` dynamic registry and a single unified `minecraft:biome_entry` biome source that lets datapacks describe biome distributions in small, human-readable files — for all three vanilla dimensions, overworld, nether and end.
 
-The mod overrides the vanilla overworld and nether dimensions with the new format and expands them at load time into the exact same in-memory `Climate.ParameterList` vanilla would have built. The in-game worldgen is **byte-for-byte identical** to vanilla — verified numerically by a parity check against `MultiNoiseBiomeSourceParameterList.knownPresets()`.
+Internally the new source evaluates two kinds of rules in one pass: fitness-based multi-noise axes (like the current overworld code) for the overworld and nether, and ordered geometric constraints (chunk radius, density-function thresholds) for the end. The in-game worldgen is **byte-for-byte identical** to vanilla in all three dimensions — verified numerically against `MultiNoiseBiomeSourceParameterList.knownPresets()` for the overworld/nether and against `TheEndBiomeSource` for the end.
 
 This is a feature proposal for Mojang, packaged as a runnable mod.
 
@@ -24,6 +24,7 @@ Last parity run on the bundled datapack:
 ```
 [parity] overworld:  OK (7593 samples, 1759 ours / 7593 vanilla entries)
 [parity] the_nether: OK (5 samples,    5 ours    / 5 vanilla entries)
+[parity] the_end:    OK (66049 samples on a 257x257 quart grid)
 ```
 
 ## Format
@@ -37,15 +38,16 @@ Last parity run on the bundled datapack:
     "type": "minecraft:noise",
     "settings": "minecraft:overworld",
     "biome_source": {
-      "type": "minecraft:multi_noise",
-      "biome_entries": "#minecraft:overworld"
+      "type": "minecraft:biome_entry",
+      "entries": "#minecraft:overworld"
     }
   }
 }
 ```
 
-`biome_entries` is a tag reference. The vanilla `biomes` (inline list) and `preset` (named preset holder) variants of `multi_noise` continue to work — the mod only adds a third decoder branch.
-- In theory, this also allows for the cleanup of other things that need to be verified, Biomes Codec, Preset Codec, registry `multi_noise_biome_source_parameter_list`, the OverworldBiomeBuilder converter to DataGen. MultiNoiseBiomeSourceParameterList class can be removed,  MultiNoiseBiomeSourceParameterLists the boostrap can be removed.
+`entries` is a tag reference. A single biome source type `minecraft:biome_entry` replaces both `minecraft:multi_noise` and `minecraft:the_end` for vanilla dimensions — the nether dimension uses `"entries": "#minecraft:the_nether"` and the end uses `"entries": "#minecraft:the_end"` with the same shape.
+
+This opens the door to a wide cleanup in the Java code: the `biomes` inline codec and the `preset` codec on `MultiNoiseBiomeSource`, the `multi_noise_biome_source_parameter_list` dynamic registry, the `MultiNoiseBiomeSourceParameterList` class and its bootstrap, the hardcoded constructor of `TheEndBiomeSource` with its five `ResourceKey` fields — all of them become dead code. `OverworldBiomeBuilder` is only needed as a one-shot datagen tool to emit the vanilla `biome_entry` files, not as a runtime builder.
 
 ### Tag
 
@@ -74,15 +76,27 @@ Last parity run on the bundled datapack:
 }
 ```
 
-Each rule is a partial constraint on the seven multi-noise axes. Conventions:
-- **Omitted axes default to `[-1.0, 1.0]`** (no constraint on that axis).
-- **`depth` omitted** → the rule is duplicated into a surface entry (`depth = 0.0`) and an underground entry (`depth = 1.0`), matching vanilla's automatic split. Set `depth` explicitly only for biomes that occupy a non-standard layer.
-- **`offset` omitted** → defaults to `0.0`.
-- A range may be written as a single number (point), a `[min, max]` array, or `{min, max}` object. The standard `Climate.Parameter` codec is used unchanged.
+A rule is a flat object carrying any subset of the constraint fields below. Two families coexist:
 
-Three illustrative entries from the bundled datapack:
+**Multi-noise axes** (fitness-based, used by overworld and nether):
+- `temperature`, `humidity`, `continentalness`, `erosion`, `weirdness`, `depth` — each a `Climate.Parameter` (a single number, a `[min, max]` array, or a `{min, max}` object)
+- `offset` — float, default `0.0`
+- Omitted axes default to `[-1.0, 1.0]` (no constraint on that axis)
+- Omitted `depth` → the rule is duplicated into a surface entry (`depth = 0.0`) and an underground entry (`depth = 1.0`), matching vanilla's automatic split. Set `depth` explicitly only for biomes that occupy a non-standard layer
+
+**Geometric constraints** (ordered, first-match-wins, used by end):
+- `within_chunk_radius` — integer. Matches if `chunkX² + chunkZ² ≤ radius²`. Replicates the end's central island check.
+- `density_function` — object with:
+  - `channel` — one of `temperature`, `humidity`, `continentalness`, `erosion`, `depth`, `weirdness`. Selects which pre-bound density function from the current dimension's `Climate.Sampler` is read.
+  - `above`, `at_least`, `below`, `at_most` — any subset, all `double`, ANDed. Four operators are needed because vanilla's end code mixes strict and non-strict comparisons (`h > 0.25` then `h >= -0.0625`) and a single inclusive `[min, max]` interval cannot express that without losing parity at the boundaries.
+  - `sample_position` — `block` (default) or `section_center`. The end samples at the center of each 16×16 section, so end entries set it explicitly.
+
+A rule that has any geometric field is **ordered**: evaluated in tag-then-rule order before any fitness-based matching, first match wins. A rule with only multi-noise axes is **fitness**: expanded into `Climate.ParameterPoint`s and placed in a shared `Climate.ParameterList`, exactly like vanilla.
+
+Examples from the bundled datapack:
+
 ```json
-// mushroom_fields.json — only continentalness matters
+// mushroom_fields.json — only continentalness matters (overworld)
 {
   "biome": "minecraft:mushroom_fields",
   "rules": [{ "continentalness": [-1.2, -1.05] }]
@@ -90,7 +104,7 @@ Three illustrative entries from the bundled datapack:
 ```
 
 ```json
-// deep_dark.json — explicit depth, no surface duplication
+// deep_dark.json — explicit depth, no surface duplication (overworld)
 {
   "biome": "minecraft:deep_dark",
   "rules": [{ "erosion": [-1.0, -0.375], "depth": 1.1 }]
@@ -108,12 +122,52 @@ Three illustrative entries from the bundled datapack:
 }
 ```
 
-The end dimension is untouched: `TheEndBiomeSource` is not `multi_noise`, so it does not benefit from this format.
+```json
+// the_end.json — central island, zone-based
+{
+  "biome": "minecraft:the_end",
+  "rules": [{ "within_chunk_radius": 64 }]
+}
+```
+
+```json
+// end_highlands.json — outer ring, erosion threshold
+{
+  "biome": "minecraft:end_highlands",
+  "rules": [{
+    "density_function": {
+      "channel": "erosion",
+      "above": 0.25,
+      "sample_position": "section_center"
+    }
+  }]
+}
+```
+
+```json
+// end_barrens.json — open/closed mix, non-overlapping with the other end biomes
+{
+  "biome": "minecraft:end_barrens",
+  "rules": [{
+    "density_function": {
+      "channel": "erosion",
+      "at_least": -0.21875,
+      "below": -0.0625,
+      "sample_position": "section_center"
+    }
+  }]
+}
+```
 
 ## Parity check
 ```
 ./gradlew runServer -Dextendedworldgen.parity=true
 ```
 
-This is just a piece of code to test the compatibility between the old and new versions, so it's for devonly use, and it confirms that the worldgen remains exactly the same byte for byte.
+Dev-only sanity net, gated by the system property so it never runs in normal play. It compares the datapack-driven selection against the untouched vanilla references in all three dimensions:
+
+- **Overworld / nether** — pulls the fitness `Climate.ParameterList` out of our source and samples the centroid of every vanilla `Climate.ParameterPoint`, comparing `findValue` results against `MultiNoiseBiomeSourceParameterList.knownPresets()`.
+- **End** — instantiates a vanilla `TheEndBiomeSource` and walks a 257×257 grid of quart-coordinates covering the central island and the outer ring, comparing `getNoiseBiome` results using the real `Climate.Sampler` from the end dimension's chunk generator.
+
+On any divergence the server startup aborts with the offending coordinates and the two biome ids.
 

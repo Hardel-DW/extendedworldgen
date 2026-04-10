@@ -1,11 +1,11 @@
 {
-  "type": "minecraft:the_nether",
+  "type": "minecraft:the_end",
   "generator": {
     "type": "minecraft:noise",
-    "settings": "minecraft:nether",
+    "settings": "minecraft:end",
     "biome_source": {
       "type": "minecraft:biome_entry",
-      "entries": "#minecraft:the_nether"
+      "entries": "#minecraft:the_end"
     }
   }
 }
